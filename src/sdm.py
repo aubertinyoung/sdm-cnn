@@ -16,17 +16,18 @@ geometry = [Point(xy) for xy in zip(data.decimalLongitude, data.decimalLatitude)
 # geometry = [x.buffer(0.2) for x in geometry]
 data = gpd.GeoDataFrame(data, crs="EPSG:4326", geometry=geometry)
 
+data.within(raster)
 
-# print(data.loc[0:1, :])
-occs = Occurrences(data.loc[:5000, :])
-thinned = occs.thin(resolution = 10, thin_proportion=0.95)
-# # print(thinned)
-# x = occs.within(raster)
-# y = x[~x.geometry.is_empty]
-# print(y)
-# print(plt.show(thinned.plot))
-# print(type(thinned))
-thinned.plot()
+# # print(data.loc[0:1, :])
+# occs = Occurrences(data.loc[:5000, :])
+# thinned = occs.thin(resolution = 10, thin_proportion=0.95)
+# # # print(thinned)
+# # x = occs.within(raster)
+# # y = x[~x.geometry.is_empty]
+# # print(y)
+# # print(plt.show(thinned.plot))
+# # print(type(thinned))
+# thinned.plot()
 
 # rast[x, y]
 

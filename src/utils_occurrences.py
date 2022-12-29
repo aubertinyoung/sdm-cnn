@@ -48,7 +48,7 @@ def make_grid(resolution: int, gdf_template: Optional[GeoDataFrame] = None, bbox
 
     # # Create xarray DataArray
     grid = xarray.DataArray(
-        data = np.empty((len(longitudes), len(latitudes)), dtype=int),
+        data = np.zeros((len(longitudes), len(latitudes)), dtype=int),
         dims=["x", "y"],
         # coords = dict(
         #     x = (["x","y"], lon),
